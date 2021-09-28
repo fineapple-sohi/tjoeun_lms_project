@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+   
+<!-- google font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+<!-- css -->
+<link rel="stylesheet" href="<%=request.getAttribute("path") %>css/common.css">
+
+<!-- script -->
+<script src="<%=request.getAttribute("path") %>js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		
+		// gnb
+		$('.gnb > li').hover(
+			function() {
+				$(this).addClass('hover').children('ul').stop().fadeIn(300);
+			}, function() {
+				$(this).removeClass('hover').children('ul').stop().fadeOut(300);
+			}	
+		);
+		
+		
+	});
+</script>

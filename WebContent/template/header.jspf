@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+	<header>
+		<h1 class="logo"><a class="ir_text" href="<%=request.getAttribute("path") %>index.do"></a></h1>
+		<div class="header-right">
+			<a class="blue-box">로그인</a>
+		</div>
+	</header>
+	<nav>
+		<ul class="gnb">
+			<li>
+				<a href="<%=request.getAttribute("path") %>intro.do">더조은소개</a>
+				<ul>
+					<li><a href="<%=request.getAttribute("path") %>intro.do">학원소개</a></li>
+					<li><a href="<%=request.getAttribute("path") %>greeting.do">인사말</a></li>
+					<li><a href="<%=request.getAttribute("path") %>map.do">오시는길</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="<%=request.getAttribute("path") %>lecture.do">모집과정</a>
+				<ul>
+					<li><a href="<%=request.getAttribute("path") %>lecture.do">모집과정</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="<%=request.getAttribute("path") %>notice.do">커뮤니티</a>
+				<ul>
+					<li><a href="<%=request.getAttribute("path") %>notice.do">공지사항</a></li>
+					<li><a href="<%=request.getAttribute("path") %>consel.do">문의하기</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+	
+	<div class="content-wrap">
+	<!-- content start -->

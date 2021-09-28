@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul {list-style: none;}
+a {text-decoration: none; color: inherit;}
+
+html,body {font-family: 'Nanum Gothic', sans-serif; font-size: 15px; color: #333;}
+   
+header {
+   	position: fixed;
+   	top: 0;
+   	left: 0;
+   	width: 100%;
+   	height: 60px;
+   	background: #fff;
+   	z-index: 100;
+   	padding: 8px 40px;
+   	border-bottom: 2px solid #eee;
+   }
+header .logo {
+	width: 180px;
+	height: 44px;
+	background: url(../imgs/logo.png) no-repeat 50% 50%/contain;
+	margin: 0 auto;
+}
+header .header-right {
+	position: absolute;
+	top: 50%;
+	right: 40px;
+	transform: translate(0,-50%);
+}
+nav {
+    position: fixed;
+   	top: 60px;
+   	left: 0;
+	width: 100%;
+	height: 50px;
+	background: #0082FF;
+	box-shadow: 5px 5px 10px rgba(90,90,90,.15);
+	z-index: 100;
+}
+.gnb {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.gnb > li {
+	position: relative;
+	width: 120px;
+	height: 50px;
+	margin: 0 20px; 
+}
+.gnb > li > a {
+	display:block;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 50px;
+	transition: all .3s;
+}
+.gnb > li.hover > a {
+	background: #fff;
+	color: #0082FF;
+}	
+.gnb > li > ul {
+	display: none;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 120px;
+	background: #fff;
+}
+.gnb > li > ul > li {
+	position: relative;
+	text-align: center;
+	margin: 10px 0;
+}
+.gnb > li > ul > li > a {
+	display:inline-block;
+	padding: 10px;
+	transition: all 0.3s;
+}
+.gnb > li > ul > li > a:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 18px;
+	width: 3px;
+	height: 1em;
+	background-color: #0082FF;
+	transform: translate(0, -50%);
+	opacity: 0;
+	transition: all 0.3s;
+}
+.gnb > li > ul > li > a:hover {
+	color: #0082FF;
+}
+.gnb > li > ul > li > a:hover:before {
+	opacity: 1;
+}
+
+footer {
+	padding: 40px 0;
+	background: #242424;
+	color: #fff;
+}
+footer h1 {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+footer ul {
+	margin-bottom: 10px;
+}
+footer ul li + li {
+	margin-top: 5px;
+}
+
+
+/* 공통클래스 */
+.ir_text {
+	display: block;
+   	width: 100%;
+   	height: 100%;
+   	text-indent: -9999em;
+   }
+.blue-box {
+   	display: inline-block;
+   	font-size: 16px;
+   	padding: .5em .8em;
+   	background-color: #0082FF;
+   	color: #fff;
+   	font-weight: bold;
+   }
+.container1440 {
+   	width: 100%;
+   	max-width: 1440px;
+   	margin: 0 auto;
+   	padding: 0 20px;
+  }
+.content-wrap {
+	margin-top: 110px;
+}
