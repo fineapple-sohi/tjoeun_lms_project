@@ -26,9 +26,25 @@ header .logo {
 header .header-right {
 	position: absolute;
 	top: 50%;
-	right: 40px;
+	right: 80px;
 	transform: translate(0,-50%);
 }
+header .header-right .user-icon {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+}
+header .header-right .user-icon:before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: -24px;
+	width: 18px;
+	height: 18px;
+	background: url(../imgs/icon_user.png) no-repeat 50% 50%/contain;
+}
+
+
 nav {
     position: fixed;
    	top: 60px;
@@ -127,14 +143,22 @@ footer ul li + li {
    	height: 100%;
    	text-indent: -9999em;
    }
-.blue-box {
-   	display: inline-block;
+.btn-box {
+	display: inline-block;
    	font-size: 16px;
+   	font-weight: bold;
    	padding: .5em .8em;
+}
+.btn-box.blue {
+	border: 1px solid #0082FF;
    	background-color: #0082FF;
    	color: #fff;
-   	font-weight: bold;
    }
+.btn-box.bd-blue {
+	border: 1px solid #0082FF;
+	background-color: #fff;
+   	color: #0082FF;
+}
 .container1440 {
    	width: 100%;
    	max-width: 1440px;

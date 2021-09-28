@@ -5,17 +5,27 @@
 	<header>
 		<h1 class="logo"><a class="ir_text" href="<%=request.getAttribute("path") %>index.do"></a></h1>
 		<div class="header-right">
-			<a class="blue-box">로그인</a>
+			<%
+			Object obj = session.getAttribute("success");
+			Object sessId = session.getAttribute("sessionID");
+			if(obj==null){
+			%>
+			<a href="<%=request.getAttribute("path") %>login/login.do" class="btn-box blue">로그인</a>
+			<%} else {%>
+			<span class="user-icon"><%=sessId %>님 [일반회원]</span>
+			<a href="#" class="btn-box blue">LMS시스템</a>
+			<a href="<%=request.getAttribute("path") %>login/logout.do" class="btn-box bd-blue">로그아웃</a>
+			<%} %>
 		</div>
 	</header>
 	<nav>
 		<ul class="gnb">
 			<li>
-				<a href="<%=request.getAttribute("path") %>intro.do">더조은소개</a>
+				<a href="<%=request.getAttribute("path") %>about/intro.do">더조은소개</a>
 				<ul>
-					<li><a href="<%=request.getAttribute("path") %>intro.do">학원소개</a></li>
-					<li><a href="<%=request.getAttribute("path") %>greeting.do">인사말</a></li>
-					<li><a href="<%=request.getAttribute("path") %>map.do">오시는길</a></li>
+					<li><a href="<%=request.getAttribute("path") %>about/intro.do">학원소개</a></li>
+					<li><a href="<%=request.getAttribute("path") %>about/greeting.do">인사말</a></li>
+					<li><a href="<%=request.getAttribute("path") %>about/map.do">오시는길</a></li>
 				</ul>
 			</li>
 			<li>

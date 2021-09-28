@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IndexController extends HttpServlet {
+public class MapController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ServletConfig config = getServletConfig();
 		String path = config.getInitParameter("path");
 		
 		req.setAttribute("path", path);
-		RequestDispatcher rd = req.getRequestDispatcher(path+"index.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher(path+"about/map.jsp");
 		rd.forward(req, resp);
 	}
 }

@@ -13,6 +13,11 @@
 	.main-slider {
 		position: relative;
 	}
+	.bx-wrapper {
+		border: 0;
+		box-shadow: none;
+		margin-bottom: 0;
+	}
 	.bxslider .slide-bg {
 		width: 100%;
 		height: 500px;
@@ -32,15 +37,10 @@
 		justify-content: space-between;	
 		z-index: 50;
 	}
-	.bx-prev, .bx-next {
-		color: #fff;
-		font-size: 50px;
-		opacity: .5;
-	}
-	.bx-pager {
-		position: absolute;
-		bottom: 40px;
-		right: 40px;
+	.bx-wrapper .bx-pager {
+		bottom: 20px;
+		right: 10%;
+		width: auto;
 		z-index: 50;
 	}
 	
@@ -55,8 +55,6 @@ $(function(){
 		auto: 'ture',
 		pause: 3000,
 		controls: 'ture',
-		nextText: '>',
-		prevText: '<'
   });
 
 });
