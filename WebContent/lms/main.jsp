@@ -20,8 +20,8 @@
 	<h1>LMS메인페이지</h1>
 	<p>lms메인페이지입니다.</p>
 	
+	
 	<!-- 각 페이지 내용 입력 End -->
-		
 	<%@ include file="../template/lms-footer.jspf" %>
 	
 
