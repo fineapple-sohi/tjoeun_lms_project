@@ -103,3 +103,30 @@ CREATE TABLE Guest
 	Guest_Addr VARCHAR2(200) NOT NULL,
 	Guest_Pw VARCHAR2(16) NOT NULL
 );
+--Create table Member
+CREATE TABLE Member
+(
+	Member_Id VARCHAR2(16) PRIMARY KEY,
+	Member_Pw VARCHAR2(16) NOT NULL,
+	Member_Auth INT NOT NULL
+);
+
+
+
+insert into dep values ('admin', '행정팀');
+insert into dep values ('sales', '영업팀');
+insert into dep values ('teacher', '강사팀');
+
+insert into guest values ('guest00', '게스트01', '01011112222', 'guest01@gmail.com', '서울', 'guest01');
+
+insert into staf values ('admin00', '김행정', '01011112222', 'admin00@gmail.com', '서울', 'admin00', 'admin');
+insert into staf values ('teacher00', '박강사', '01033334444', 'teacher00@gmail.com', '인천', 'teacher00', 'teacher');
+insert into staf values ('sales00', '이영업', '01055556666', 'sales00@gmail.com', '경기', 'sales00', 'sales');
+
+insert into stu values ('stu00', '이학생', '01088889999', 'stu00@naver.com', '대전', 'stu00', 'lect00')
+
+insert into member values ('guest00', 'guest00', 0);
+insert into member values ('stu00', 'stu00', 1);
+insert into member values ('teacher00', 'teacher00', 2);
+insert into member values ('sales00', 'sales00', 3);
+insert into member values ('admin00', 'admin00', 4);

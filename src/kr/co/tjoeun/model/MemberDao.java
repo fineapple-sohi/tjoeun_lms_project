@@ -25,18 +25,19 @@ public class MemberDao {
 		return mbDao;
 	}
 	
-	public int login(String id, String pw) {
-		int cnt=0;
-		String sql="select count(*) from guest where guest_id=? and guest_pw=?";
+	public int login(String memberId, String memberPw) {
+		int authNum=-1;
+		String sql="select member_auth from member where member_id=? and member_pw=?";
 		try {
 			conn = MyOracle.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPw);
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) cnt=rs.getInt(1);
-		
+			if(rs.next()) authNum = rs.getInt(1);
+			System.out.println(authNum);
+				
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -49,8 +50,12 @@ public class MemberDao {
 			
 		}
 
-		if(cnt>0) return 1;
-		return -1;
+		
+		return authNum;
+//		if(authNum > 0) {
+//			return authNum;		
+//		}
+//		return -1;
 
 		
 	}

@@ -5,7 +5,9 @@ ul {list-style: none;}
 a {text-decoration: none; color: inherit;}
 
 html,body {font-family: 'Nanum Gothic', sans-serif; font-size: 15px; color: #333;}
-   
+ 
+ 
+/* hp 템플릿 */  
 header {
    	position: fixed;
    	top: 0;
@@ -135,6 +137,42 @@ footer ul li + li {
 	margin-top: 5px;
 }
 
+/* lms 템플릿 */
+#lmsHeader {
+	background: #f9f9f9;
+}
+
+#lmsHeader .logo {
+	margin: 0;
+}
+#lmsHeader .link-home {
+	position: absolute;
+	top: 0;
+	left: 260px;
+	width: 30px;
+	hegith: 30px;
+}
+
+.lms-wrap {
+	display: flex;
+	margin-top: 60px;
+}
+
+.lms-wrap .left-menu {
+	width: 250px;
+	background: #eee;
+	border
+}
+.lms-wrap .right-content {
+	width: calc(100% - 250px);
+}
+
+
+#lmsFooter {
+	padding: 10px 0;
+}
+
+
 
 /* 공통클래스 */
 .ir_text {
@@ -168,3 +206,4 @@ footer ul li + li {
 .content-wrap {
 	margin-top: 110px;
 }
+

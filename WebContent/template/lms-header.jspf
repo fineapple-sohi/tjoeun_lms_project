@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<header id="lmsHeader">
+	<h1 class="logo"><a class="ir_text" href="<%=request.getAttribute("path") %>lms/main.lms"></a></h1>
+	<div class="link-home"><a href="<%=request.getAttribute("path") %>index.do" class="ir_text">홈페이지</a></div>
+	<div class="header-right">
+		<%!String authName; %>
+		<%
+		Object obj = session.getAttribute("success");
+		Object sessId = session.getAttribute("sessionID");
+		Object sessAuth = session.getAttribute("sessionAuth");	
+		
+		if(obj==null){
+		%>
+		<a href="<%=request.getAttribute("path") %>login/login.do" class="btn-box blue">로그인</a>
+		<%} else {
+				switch((int)sessAuth) {
+					case 0: authName = "일반회원";
+						break;
+					case 1: authName = "수강생";
+						break;
+					case 2: authName = "강사팀";
+						break;
+					case 3: authName = "영업팀";
+						break;
+					case 4: authName = "행정팀";
+						break;
+					//default;
+				}			
+		%>
+		<span class="user-icon"><%=sessId %>님 [<%=authName %>]</span>
+		<a href="#" class="btn-box blue">개인정보수정</a>
+		<a href="<%=request.getAttribute("path") %>login/logout.do" class="btn-box bd-blue">로그아웃</a>
+		<%} %>
+	</div>
+</header>

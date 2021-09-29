@@ -39,7 +39,6 @@
 		font-size: 20px;
 		font-weight: bold;
 		padding: 10px 0;
-		margin-top: 20px;
 		cursor: pointer;
 	}
 	form input[type="text"] {
@@ -48,9 +47,20 @@
 		font-size: 20px;
 		padding: 0 5px;
 	}
+	.err-msg {
+		color: #ff003e;
+		font-size: 14px;
+		margin-top: 20px;
+	}
 	
-
 </style>
+<script>
+	$(function(){
+		if(<%=request.getAttribute("loginResult")%> == -1) {
+			$('.err-msg').text("아이디 또는 비밀번호가 잘못 입력되었습니다.");
+		}		
+	});
+</script>
 </head>
 <body>
 <%@ include file="../template/header.jspf" %>	
@@ -67,6 +77,9 @@
 				<div>
 					<label for="pw">비밀번호</label>
 					<input type="text" name="pw" id="pw">
+				</div>
+				<div>
+					<span class="err-msg"></span>
 				</div>
 				<div>
 					<button type="submit">로그인</button>

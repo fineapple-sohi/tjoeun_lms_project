@@ -5,15 +5,34 @@
 	<header>
 		<h1 class="logo"><a class="ir_text" href="<%=request.getAttribute("path") %>index.do"></a></h1>
 		<div class="header-right">
+			<%!String authName; %>
 			<%
 			Object obj = session.getAttribute("success");
 			Object sessId = session.getAttribute("sessionID");
+			Object sessAuth = session.getAttribute("sessionAuth");	
+			
 			if(obj==null){
 			%>
 			<a href="<%=request.getAttribute("path") %>login/login.do" class="btn-box blue">로그인</a>
-			<%} else {%>
-			<span class="user-icon"><%=sessId %>님 [일반회원]</span>
-			<a href="#" class="btn-box blue">LMS시스템</a>
+			<%} else {
+					switch((int)sessAuth) {
+						case 0: authName = "일반회원";
+							break;
+						case 1: authName = "수강생";
+							break;
+						case 2: authName = "강사팀";
+							break;
+						case 3: authName = "영업팀";
+							break;
+						case 4: authName = "행정팀";
+							break;
+						//default;
+					}			
+			%>
+			<span class="user-icon"><%=sessId %>님 [<%=authName %>]</span>
+			<%		if((int)sessAuth > 0){ %>
+			<a href="<%=request.getAttribute("path") %>lms/main.lms" class="btn-box blue">LMS시스템</a>
+			<% 		} %>
 			<a href="<%=request.getAttribute("path") %>login/logout.do" class="btn-box bd-blue">로그아웃</a>
 			<%} %>
 		</div>

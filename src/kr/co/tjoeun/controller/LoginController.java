@@ -43,12 +43,12 @@ public class LoginController extends HttpServlet {
 		MemberDao mbDao = MemberDao.getInstance();
 		int loginResult = mbDao.login(id, pw);
 		
-		if(loginResult == 1) {
+		if(loginResult > -1) {
 			req.setAttribute("loginResult", loginResult);
 			HttpSession session = req.getSession();
 			session.setAttribute("success", true);
 			session.setAttribute("sessionID", id);
-//			session.setAttribute("userGroup", group);	행정팀, 영업팀, 강사팀, 학생, 일반회원 구분해서 아이디옆에 표기되어야함
+			session.setAttribute("sessionAuth", loginResult);
 
 //			RequestDispatcher rd = req.getRequestDispatcher(path+"index.jsp");
 //			rd.forward(req, resp);
