@@ -161,12 +161,37 @@ footer ul li + li {
 .lms-wrap .left-menu {
 	width: 250px;
 	background: #eee;
-	border
 }
+
+.depth1{
+	width:100%;
+	padding:25px 15px 15px 25px;
+	margin-bottom:10px;
+	background-color:#dae3f3;
+}
+
+.active{background-color:#8fabdb;}
+
+.depth1>strong{
+	font-size:20px;
+	color:#fff;
+}
+
+.depth1>ul{
+	width:100%;
+	margin-top:20px;
+	line-height:2em;
+}
+
+.depth1>ul>li{
+	display:block;
+	width:100%;
+	color:#fff;
+}
+
 .lms-wrap .right-content {
 	width: calc(100% - 250px);
 }
-
 
 #lmsFooter {
 	padding: 10px 0;

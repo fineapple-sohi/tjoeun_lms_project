@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>LMS시스템</title>
 <%@ include file="../template/head.jspf" %>
+<style>
+
+
+</style>
 </head>
 <body>
 
