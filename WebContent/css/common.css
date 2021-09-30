@@ -35,6 +35,7 @@ header .header-right .user-icon {
 	position: relative;
 	display: inline-block;
 	margin: 0 10px;
+	font-weight: bold;
 }
 header .header-right .user-icon:before {
 	content: '';
@@ -137,6 +138,8 @@ footer ul li + li {
 	margin-top: 5px;
 }
 
+
+
 /* lms 템플릿 */
 #lmsHeader {
 	background: #f9f9f9;
@@ -147,30 +150,42 @@ footer ul li + li {
 }
 #lmsHeader .link-home {
 	position: absolute;
-	top: 0;
-	left: 260px;
+	top: 15px;
+	left: 250px;
 	width: 30px;
-	hegith: 30px;
+	height: 30px;
+	background: url(../imgs/icon_home.png) no-repeat 50% 50%/contain;
+	opacity: .5;
+	transition: all .2s;
+}
+#lmsHeader .link-home:hover {
+	opacity: .8;
 }
 
 .lms-wrap {
 	display: flex;
 	margin-top: 60px;
+	height: calc(100vh - 100px);
 }
 
 .lms-wrap .left-menu {
 	width: 250px;
 	background: #eee;
+	border-right: 2px solid #eee;
+	overflow-y: auto;
 }
 
-.depth1{
+.depth1 {
 	width:100%;
 	padding:25px 15px 15px 25px;
-	margin-bottom:10px;
-	background-color:#dae3f3;
+	margin-bottom:5px;
+	background-color:#c2d2ef;
+	transition: all .2s;
 }
 
-.active{background-color:#8fabdb;}
+.depth1.active {
+	background-color:#8fabdb;
+}
 
 .depth1>strong{
 	font-size:20px;
@@ -188,13 +203,30 @@ footer ul li + li {
 	width:100%;
 	color:#fff;
 }
+.depth1>ul>li>a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 5px 10px;
+}
+.depth1.active>ul>li>a:hover {
+	background: #6489c4;
+}
 
 .lms-wrap .right-content {
 	width: calc(100% - 250px);
+	overflow-y: auto;
+	padding: 20px 30px;
 }
-
+.lms-wrap .right-content .pg-tit {
+	padding-bottom: 15px;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #333;
+}
 #lmsFooter {
-	padding: 10px 0;
+	padding: 0;
+	height: 40px;
+	line-height: 40px;
 }
 
 
@@ -211,6 +243,7 @@ footer ul li + li {
    	font-size: 16px;
    	font-weight: bold;
    	padding: .5em .8em;
+   	transition: all .2s;
 }
 .btn-box.blue {
 	border: 1px solid #0082FF;
@@ -221,6 +254,11 @@ footer ul li + li {
 	border: 1px solid #0082FF;
 	background-color: #fff;
    	color: #0082FF;
+}
+.btn-box:hover {
+	color: #fff;
+	background-color: #666;
+	border-color: #666;
 }
 .container1440 {
    	width: 100%;

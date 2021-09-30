@@ -1,25 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <script>
-$(document).ready(function(){
-	$('.depth1').click(function(){
+	$(function(){
+		
+		// 권한별 메뉴 보여주기	
+		$('.depth1').hide();
+		$('.depth1').eq(0).data({'minAuth': 2, 'maxAuth': 4});
+		$('.depth1').eq(1).data({'minAuth': 4, 'maxAuth': 4});
+		$('.depth1').eq(2).data({'minAuth': 2, 'maxAuth': 4});
+		$('.depth1').eq(3).data({'minAuth': 4, 'maxAuth': 4});
+		$('.depth1').eq(4).data({'minAuth': 1, 'maxAuth': 1});
+		
+		var dep1 = $('.depth1');
+		$.each(dep1, function (idx, obj){
+			if(($(this).data('minAuth') <= <%=sessAuth%>) && ($(this).data('maxAuth') >= <%=sessAuth%>)) {
+				$(this).show();
+			}
+		});
+		
+		// 메뉴클릭시 active
+		$('.depth1').hover(function(){
+			$(this).toggleClass("active");
+		});
+		$('.depth1').click(function(){
 			$('.depth1').removeClass("active");
 			$(this).addClass("active");
+		});
+			
 	});
-});
+	
 </script>
-</head>
-<body>
+
 <div class="lms-wrap">
 	<div class="left-menu">
 		<div class="depth1">
 			<strong>수업관리</strong>
 			<ul>
 				<li><a href="#">모집현황 조회</a></li>
+				<%if((int)sessAuth == 4) {%>
 				<li><a href="#">수업 개설</a></li>
+				<%} %>
 			</ul>
 		</div>
 		<div class="depth1">
@@ -33,16 +54,20 @@ $(document).ready(function(){
 			<strong>수강생관리</strong>
 			<ul>
 				<li><a href="#">수강생 조회</a></li>
+				<%if((int)sessAuth == 4) {%>
 				<li><a href="#">수강생 등록</a></li>
+				<%} %>
+				<%if((int)sessAuth == 2) {%>
 				<li><a href="#">출결관리</a></li>	<!-- 강사에게 보이는 출결관리 -->
 				<li><a href="#">성적관리</a></li>   <!-- 강사에게 보이는 성적관리 -->
+				<%} %>
 			</ul>
 		</div>
 		<div class="depth1">
 			<strong>게시판관리</strong>
 			<ul>
-				<li><a href="#">공지사항</a></li>
-				<li><a href="#">문의하기</a></li>
+				<li><a href="<%=request.getAttribute("path") %>lms/bbs/bbsList.lms?bbs_table=notice">공지사항</a></li>
+				<li><a href="<%=request.getAttribute("path") %>lms/bbs/bbsList.lms?bbs_table=quest">문의하기</a></li>
 			</ul>
 		</div>
 		<div class="depth1">
@@ -58,7 +83,4 @@ $(document).ready(function(){
 	
 	
 	<!-- right-content -->
-	<div class= right-content">
-	
-	</body>
-</html>
+	<div class= "right-content">

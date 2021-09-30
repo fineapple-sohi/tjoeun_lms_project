@@ -17,7 +17,7 @@
 	<%@ include file="../template/lms-menu.jspf" %>
 	
 	<!-- 각 페이지 내용 입력 Start -->
-	<h1>LMS메인페이지</h1>
+	<h2 class="pg-tit">LMS 메인페이지</h2>
 	<p>lms메인페이지입니다.</p>
 	
 	
