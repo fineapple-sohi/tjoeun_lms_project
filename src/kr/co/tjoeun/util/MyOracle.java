@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class MyOracle {
 	private static Connection conn;
 	private static String driver="oracle.jdbc.OracleDriver";
-	private static String url="jdbc:oracle:thin:@localhost:1521:xe";	//49161
-	private static String user="scott";	//system
-	private static String password="tiger";	//oracle
+	private static String url="jdbc:oracle:thin:@localhost:49161:xe";	//1521
+	private static String user="system";	//scott
+	private static String password="oracle";	//tiger
 	
 	public MyOracle() {}
 	
