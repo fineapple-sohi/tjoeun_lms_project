@@ -171,17 +171,17 @@ footer ul li + li {
 .lms-wrap .left-menu {
 	width: 250px;
 	background: #eee;
-
-	overflow-y: auto;
+<<<<<<< HEAD
 }
 
-.depth1 {
+.depth1{
 	width:100%;
 	padding:25px 15px 15px 25px;
-	margin-bottom:5px;
-	background-color:#c2d2ef;
-	transition: all .2s;
+	margin-bottom:10px;
+	background-color:#dae3f3;
 }
+
+.active{background-color:#8fabdb;}
 
 .depth1>strong{
 	font-size:20px;
@@ -199,43 +199,11 @@ footer ul li + li {
 	width:100%;
 	color:#fff;
 }
-.depth1>ul>li>a {
-	display: block;
-	width: 100%;
-	height: 100%;
-	padding: 5px 10px;
-}
-.depth1.hover {
-	background-color:#8fabdb;
-}
-.depth1.hover>ul>li>a:hover {
-	background: #6489c4;
-}
-
-.depth1.active {
-	background-color:#fff;
-	box-shadow: 3px 3px 7px rgba(0,0,0,.1);
-}
-.depth1.active>strong{
-	color:#333;
-}
-.depth1.active>ul>li>a {
-	color: #333;
-}
-.depth1.active>ul>li>a:hover {
-	background: #f0f0f0;
-}
 
 .lms-wrap .right-content {
 	width: calc(100% - 250px);
-	overflow-y: auto;
-	padding: 20px 30px;
 }
-.lms-wrap .right-content .pg-tit {
-	padding-bottom: 15px;
-	margin-bottom: 40px;
-	border-bottom: 1px solid #333;
-}
+
 #lmsFooter {
 	padding: 0;
 	height: 40px;

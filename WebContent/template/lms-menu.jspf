@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+$(document).ready(function(){
+	$('.depth1').click(function(){
+			$('.depth1').removeClass("active");
+			$(this).addClass("active");
+	});
+});
+</script>
+</head>
+<body>
 <script>
 	$(function(){
 		
@@ -96,4 +109,8 @@
 	
 	
 	<!-- right-content -->
-	<div class= "right-content">
+	<div class= right-content">
+	
+	</body>
+</html>
+
