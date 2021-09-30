@@ -14,8 +14,6 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-=======
-
 <script>
 	$(function(){
 		
@@ -60,7 +58,6 @@ $(document).ready(function(){
 	
 </script>
 
->>>>>>> e68d76e9173d1009364b8d3750b9ec8cd7dd9ee1
 <div class="lms-wrap">
 	<div class="left-menu">
 		<div class="depth1">
@@ -112,7 +109,6 @@ $(document).ready(function(){
 	
 	
 	<!-- right-content -->
-
 	<div class= right-content">
 	
 	</body>
