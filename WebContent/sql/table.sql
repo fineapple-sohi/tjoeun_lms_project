@@ -123,7 +123,7 @@ insert into staf values ('admin00', '김행정', '01011112222', 'admin00@gmail.c
 insert into staf values ('teacher00', '박강사', '01033334444', 'teacher00@gmail.com', '인천', 'teacher00', 'teacher');
 insert into staf values ('sales00', '이영업', '01055556666', 'sales00@gmail.com', '경기', 'sales00', 'sales');
 
-insert into stu values ('stu00', '이학생', '01088889999', 'stu00@naver.com', '대전', 'stu00', 'lect00')
+insert into stu values ('stu00', '이학생', '01088889999', 'stu00@naver.com', '대전', 'stu00', 'lect00');
 
 insert into member values ('guest00', 'guest00', 0);
 insert into member values ('stu00', 'stu00', 1);

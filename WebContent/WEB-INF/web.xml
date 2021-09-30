@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   
-  <!-- LMS 게시판관리 START -->
+  <!-- LMS메인 매핑 START -->
   <servlet>
   	<servlet-name>LmsMain</servlet-name>
   	<servlet-class>kr.co.tjoeun.controller.LmsMainController</servlet-class>
@@ -25,7 +25,24 @@
   	<servlet-name>LmsMain</servlet-name>
   	<url-pattern>/lms/main.lms</url-pattern>
   </servlet-mapping>
-  <!-- LMS 게시판관리 END -->
+  <!-- LMS메인 매핑 END -->
+  
+  
+  <!-- LMS 게시판관리 매핑 START -->
+  <servlet>
+  	<servlet-name>lmsBbsList</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.LmsBbsListController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+ 	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>lmsBbsList</servlet-name>
+  	<url-pattern>/lms/bbs/bbsList.lms</url-pattern>
+  </servlet-mapping>
+  <!-- LMS 게시판관리 매핑 END -->
   
   
   <!-- 홈페이지 매핑 START -->
