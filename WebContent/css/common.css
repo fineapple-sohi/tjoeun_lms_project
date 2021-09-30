@@ -171,7 +171,7 @@ footer ul li + li {
 .lms-wrap .left-menu {
 	width: 250px;
 	background: #eee;
-	border-right: 2px solid #eee;
+
 	overflow-y: auto;
 }
 
@@ -181,10 +181,6 @@ footer ul li + li {
 	margin-bottom:5px;
 	background-color:#c2d2ef;
 	transition: all .2s;
-}
-
-.depth1.active {
-	background-color:#8fabdb;
 }
 
 .depth1>strong{
@@ -209,8 +205,25 @@ footer ul li + li {
 	height: 100%;
 	padding: 5px 10px;
 }
-.depth1.active>ul>li>a:hover {
+.depth1.hover {
+	background-color:#8fabdb;
+}
+.depth1.hover>ul>li>a:hover {
 	background: #6489c4;
+}
+
+.depth1.active {
+	background-color:#fff;
+	box-shadow: 3px 3px 7px rgba(0,0,0,.1);
+}
+.depth1.active>strong{
+	color:#333;
+}
+.depth1.active>ul>li>a {
+	color: #333;
+}
+.depth1.active>ul>li>a:hover {
+	background: #f0f0f0;
 }
 
 .lms-wrap .right-content {

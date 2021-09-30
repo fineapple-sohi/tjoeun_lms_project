@@ -19,14 +19,27 @@
 			}
 		});
 		
-		// 메뉴클릭시 active
+		// 메뉴hover시 active
 		$('.depth1').hover(function(){
-			$(this).toggleClass("active");
+			$(this).toggleClass("hover");
 		});
-		$('.depth1').click(function(){
-			$('.depth1').removeClass("active");
-			$(this).addClass("active");
+
+		// 현재 페이지 메뉴 active
+		var pageName = location.pathname.split("/").find(function(element) {
+		    if (element.indexOf(".lms") > 0)
+		       return element;
 		});
+		
+		$.each(dep1, function (idx, obj){
+			if($(this).find('a').attr('href').indexOf(pageName) > 0){
+				$(this).addClass('active');
+			}
+			
+			console.log($(this).find('a').attr('href').match(pageName));
+			
+		});
+		
+
 			
 	});
 	
