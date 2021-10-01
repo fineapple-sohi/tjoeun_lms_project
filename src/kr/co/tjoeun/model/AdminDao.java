@@ -1,4 +1,5 @@
 package kr.co.tjoeun.model;
+//git prac2
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
