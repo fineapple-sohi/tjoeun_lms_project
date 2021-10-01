@@ -37,7 +37,20 @@
   		<param-value>../../</param-value>
  	</init-param>
   </servlet>
+  <servlet>
+  	<servlet-name>scoreManage</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.ScoreManageController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+  	</init-param>
+  </servlet>
   
+  
+  <servlet-mapping>
+  	<servlet-name>scoreManage</servlet-name>
+  	<url-pattern>/lms/eval/scoreManage.lms</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>lmsBbsList</servlet-name>
   	<url-pattern>/lms/bbs/bbsList.lms</url-pattern>
