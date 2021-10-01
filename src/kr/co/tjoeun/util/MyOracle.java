@@ -10,7 +10,7 @@ public class MyOracle {
 	private static String driver="oracle.jdbc.OracleDriver";
 	private static String url="jdbc:oracle:thin:@localhost:1521:xe";
 	private static String user="scott";
-	private static String password="tiger2";
+	private static String password="tiger";
 	
 	private MyOracle() {}
 	
