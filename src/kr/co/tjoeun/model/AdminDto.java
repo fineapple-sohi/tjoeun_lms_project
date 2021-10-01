@@ -1,4 +1,5 @@
 package kr.co.tjoeun.model;
+//git prac2
 
 public class AdminDto {
 	private String adminId;
