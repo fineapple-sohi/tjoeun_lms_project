@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.board-wrap {
+	width: 100%;
+	max-width: 960px;
+}
+
 .board-wrap table {
 	width: 100%;
 	max-width: 1200px;

@@ -12,11 +12,34 @@ public class TeacherDao {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs=null;
+	private static final int TEACHER_AUTH=2;
 	
 	public void insertTeacher(String teacherId, String teacherName,
 			String teacherTel, String teacherEmail, String teacherAddr,
 			String teacherPw) {
 		String sql="insert into Staf values (?, ?, ?, ?, ?, ?, ?)";
+		String sql1="insert into Member values (?, ?, ?)";
+		boolean isIdValid=true;
+		
+		try {
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql1);
+			pstmt.setString(1, teacherId);
+			pstmt.setString(2, teacherPw);
+			pstmt.setInt(3, TEACHER_AUTH);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			isIdValid=false;
+		} finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //try-catch-finally1
+		if(!isIdValid) return;
 		
 		try {
 			conn=MyOracle.getConnection();
@@ -28,6 +51,7 @@ public class TeacherDao {
 			pstmt.setString(5, teacherAddr);
 			pstmt.setString(6, teacherPw);
 			pstmt.setString(7, "teacher");
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -38,11 +62,12 @@ public class TeacherDao {
 				e.printStackTrace();
 			}
 		} //try-catch-finally
+		
 	} //insertTeacher
 	
 	public TeacherDto selectTeacher(String teacherId) {
 		TeacherDto bean = new TeacherDto();
-		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw where Staf_Id=?";
+		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw from Staf where Staf_Id=?";
 		
 		try {
 			conn=MyOracle.getConnection();
@@ -73,11 +98,12 @@ public class TeacherDao {
 	
 	public ArrayList<TeacherDto> selectTeacherList(){
 		ArrayList<TeacherDto> list = new ArrayList<TeacherDto>();
-		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw from Staf";
+		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw from Staf where Staf_DepCode=?";
 		
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, "teacher");
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TeacherDto bean = new TeacherDto();
@@ -106,7 +132,7 @@ public class TeacherDao {
 	public ArrayList<TeacherDto> selectFreeTeacherList(){
 		ArrayList<TeacherDto> list = new ArrayList<TeacherDto>();
 		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw from "
-				+ "Staf left outer join Lect on Staf_Id=Lect_StafId where "
+				+ "Staf left outer join Lect on Staf_Id=Lect_StafId from Staf where "
 				+ "Staf_DepCode=? and Lect_Code is null";
 		
 		try {
@@ -140,7 +166,8 @@ public class TeacherDao {
 	
 	public void updateTeacher(String teacherId, String teacherTel,
 			String teacherEmail, String teacherAddr, String teacherPw) {
-		String sql="update Staf set Staf_Tel=?, Staf_Email=?, Staf_Addr=?, Staf_Pw=? where Staf_Id=?";
+		String sql="update Staf set Staf_Tel=?, Staf_Email=?, Staf_Addr=?, Staf_Pw=? where Staf_Id=? and Staf_DepCode=?";
+		String sql1="update Member set Member_Pw=? where Member_Id=?";
 		
 		try {
 			conn=MyOracle.getConnection();
@@ -150,6 +177,7 @@ public class TeacherDao {
 			pstmt.setString(3, teacherAddr);
 			pstmt.setString(4, teacherPw);
 			pstmt.setString(5, teacherId);
+			pstmt.setString(6, "teacher");
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,6 +189,23 @@ public class TeacherDao {
 				e.printStackTrace();
 			}
 		} //try-catch-finally
+		
+		try {
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql1);
+			pstmt.setString(1, teacherPw);
+			pstmt.setString(2, teacherId);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //try-catch-finally1
 	} //updateTeacher
 	
 }

@@ -8,15 +8,15 @@ import java.util.ArrayList;
 
 import kr.co.tjoeun.util.MyOracle;
 
-public class AdminDao {
+public class SalesDao {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs=null;
-	private static final int ADMIN_AUTH=4;
-
-	public void insertAdmin(String adminId, String adminName,
-			String adminTel, String adminEmail, String adminAddr, 
-			String adminPw) {
+	private static final int SALES_AUTH=3;
+	
+	public void insertSales(String salesId, String salesName,
+			String salesTel, String salesEmail, String salesAddr,
+			String salesPw) {
 		String sql="insert into Staf values (?, ?, ?, ?, ?, ?, ?)";
 		String sql1="insert into Member values (?, ?, ?)";
 		boolean isIdValid=true;
@@ -24,9 +24,9 @@ public class AdminDao {
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql1);
-			pstmt.setString(1, adminId);
-			pstmt.setString(2, adminPw);
-			pstmt.setInt(3, ADMIN_AUTH);
+			pstmt.setString(1, salesId);
+			pstmt.setString(2, salesPw);
+			pstmt.setInt(3, SALES_AUTH);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -44,13 +44,13 @@ public class AdminDao {
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, adminId);
-			pstmt.setString(2, adminName);
-			pstmt.setString(3, adminTel);
-			pstmt.setString(4, adminEmail);
-			pstmt.setString(5, adminAddr);
-			pstmt.setString(6, adminPw);
-			pstmt.setString(7, "admin");
+			pstmt.setString(1, salesId);
+			pstmt.setString(2, salesName);
+			pstmt.setString(3, salesTel);
+			pstmt.setString(4, salesEmail);
+			pstmt.setString(5, salesAddr);
+			pstmt.setString(6, salesPw);
+			pstmt.setString(7, "sales");
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -62,24 +62,24 @@ public class AdminDao {
 				e.printStackTrace();
 			}
 		} //try-catch-finally
-	} //insertAdmin
+	} //insertSales
 	
-	public AdminDto selectAdmin(String adminId) {
-		AdminDto bean = new AdminDto();
+	public SalesDto selectSales(String salesId) {
+		SalesDto bean = new SalesDto();
 		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw from Staf where Staf_Id=?";
 		
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, adminId);
+			pstmt.setString(1, salesId);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				bean.setAdminId(rs.getString("Staf_Id"));
-				bean.setAdminName(rs.getString("Staf_Name"));
-				bean.setAdminTel(rs.getString("Staf_Tel"));
-				bean.setAdminEmail(rs.getString("Staf_Email"));
-				bean.setAdminAddr(rs.getString("Staf_Addr"));
-				bean.setAdminPw(rs.getString("Staf_Pw"));
+				bean.setSalesId(rs.getString("Staf_Id"));
+				bean.setSalesName(rs.getString("Staf_Name"));
+				bean.setSalesTel(rs.getString("Staf_Tel"));
+				bean.setSalesEmail(rs.getString("Staf_Email"));
+				bean.setSalesAddr(rs.getString("Staf_Addr"));
+				bean.setSalesPw(rs.getString("Staf_Pw"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -93,25 +93,25 @@ public class AdminDao {
 			}
 		} //try-catch-finally
 		return bean;
-	} //selectAdmin
+	} //selectSales
 	
-	public ArrayList<AdminDto> selectAdminList(){
-		ArrayList<AdminDto> list = new ArrayList<AdminDto>();
+	public ArrayList<SalesDto> selectSalesList(){
+		ArrayList<SalesDto> list = new ArrayList<SalesDto>();
 		String sql="select Staf_Id, Staf_Name, Staf_Tel, Staf_Email, Staf_Addr, Staf_Pw from Staf where Staf_DepCode=?";
 		
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, "admin");
+			pstmt.setString(1, "sales");
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				AdminDto bean = new AdminDto();
-				bean.setAdminId(rs.getString("Staf_Id"));
-				bean.setAdminName(rs.getString("Staf_Name"));
-				bean.setAdminTel(rs.getString("Staf_Tel"));
-				bean.setAdminEmail(rs.getString("Staf_Email"));
-				bean.setAdminAddr(rs.getString("Staf_Addr"));
-				bean.setAdminPw(rs.getString("Staf_Pw"));
+				SalesDto bean = new SalesDto();
+				bean.setSalesId(rs.getString("Staf_Id"));
+				bean.setSalesName(rs.getString("Staf_Name"));
+				bean.setSalesTel(rs.getString("Staf_Tel"));
+				bean.setSalesEmail(rs.getString("Staf_Email"));
+				bean.setSalesAddr(rs.getString("Staf_Addr"));
+				bean.setSalesPw(rs.getString("Staf_Pw"));
 				list.add(bean);
 			} //while loop
 		} catch (SQLException e) {
@@ -124,24 +124,24 @@ public class AdminDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} //try-catch-finally		
+		} //try-catch-finally
 		return list;
-	} //selectAdminList
+	} //selectSalesList
 	
-	public void updateAdmin(String adminId, String adminTel, 
-			String adminEmail, String adminAddr, String adminPw) {
+	public void updateSales(String salesId, String salesTel, 
+			String salesEmail, String salesAddr, String salesPw) {
 		String sql="update Staf set Staf_Tel=?, Staf_Email=?, Staf_Addr=?, Staf_Pw=? where Staf_Id=? and Staf_DepCode=?";
 		String sql1="update Member set Member_Pw=? where Member_Id=?";
 		
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, adminTel);
-			pstmt.setString(2, adminEmail);
-			pstmt.setString(3, adminAddr);
-			pstmt.setString(4, adminPw);
-			pstmt.setString(5, adminId);
-			pstmt.setString(6, "admin");
+			pstmt.setString(1, salesTel);
+			pstmt.setString(2, salesEmail);
+			pstmt.setString(3, salesAddr);
+			pstmt.setString(4, salesPw);
+			pstmt.setString(5, salesId);
+			pstmt.setString(6, "sales");
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -157,8 +157,8 @@ public class AdminDao {
 		try {
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql1);
-			pstmt.setString(1, adminPw);
-			pstmt.setString(2, adminId);
+			pstmt.setString(1, salesPw);
+			pstmt.setString(2, salesId);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -169,7 +169,7 @@ public class AdminDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} //try-catch-finally1
-	} //updateAdmin
+		} //try-catch-finally
+	} //updateSales
 
 }
