@@ -54,7 +54,6 @@
  	</init-param>
   </servlet>
 
-
   <servlet-mapping>
   	<servlet-name>lmsBbsView</servlet-name>
   	<url-pattern>/lms/bbs/bbsView.lms</url-pattern>
@@ -63,11 +62,29 @@
   	<servlet-name>lmsBbsWrite</servlet-name>
   	<url-pattern>/lms/bbs/bbsWrite.lms</url-pattern>
   </servlet-mapping>  
+  <!-- LMS 게시판관리 매핑 END -->
+  
+  
+  <!-- LMS 성적관리 매핑 START -->
+    <servlet>
+  	<servlet-name>scoreManage</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.ScoreManageController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+  	</init-param>
+  </servlet>
+ 
+  
+  <servlet-mapping>
+  	<servlet-name>scoreManage</servlet-name>
+  	<url-pattern>/lms/eval/scoreManage.lms</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>lmsBbsList</servlet-name>
   	<url-pattern>/lms/bbs/bbsList.lms</url-pattern>
   </servlet-mapping>
-  <!-- LMS 게시판관리 매핑 END -->
+   <!-- LMS 성적관리 매핑 END -->
   
   
   <!-- 홈페이지 매핑 START -->

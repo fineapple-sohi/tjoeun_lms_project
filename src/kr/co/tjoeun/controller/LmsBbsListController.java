@@ -33,6 +33,7 @@ public class LmsBbsListController extends HttpServlet {
 
 		req.setAttribute("bbsTable", bbsTable);
 		req.setAttribute("bbsTit", bbsTit);			
+
 		req.setAttribute("path", path);
 		RequestDispatcher rd = req.getRequestDispatcher(path+"lms/bbs/bbsList.jsp");
 		rd.forward(req, resp);
