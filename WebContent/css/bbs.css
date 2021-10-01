@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+.board-wrap table {
+	width: 100%;
+	max-width: 1200px;
+	border-collapse: collapse;
+	border-bottom: 2px solid #aaa;
+}
+.board-wrap table th {
+	padding: 15px;
+	background: #444;
+	color: #fff;
+}
+.board-wrap table tr {
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #ccc;
+}
+.board-wrap table tr:hover {
+	background-color: #f0f0f0;
+}
+.board-wrap table td {
+	text-align: center;
+}
+.board-wrap table td:nth-child(2) {
+	text-align: left;
+}
+.board-wrap table td a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+}
+
+.board-wrap form {
+	width: 100%;
+	max-width: 960px;
+	padding: 0 20px;
+}
+.board-wrap form > div {
+	display: flex;
+	align-items: center;
+	padding: 5px 0;
+}
+.board-wrap form > div .cate,
+.board-wrap form > div input {
+	font-size: 16px;
+}
+
+.board-wrap form > div .cate {
+	width: 150px;
+	background: #333;
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+.board-wrap form > div input[type="text"] {
+	width: 100%;
+	padding: 8px;
+}
+.board-wrap form > div .file-hidden {
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0;
+}
+.board-wrap form > div .file-name {
+	width: 400px;
+	font-size: 16px;
+	padding: 8px;
+}
+.board-wrap form > div .file-name + label {
+	font-size: 16px;
+	background: #777 url(../imgs/icon_file.png) no-repeat 10px 50%/20px;
+	color: #fff;
+	padding: 10px 10px 10px 40px;
+	cursor: pointer;
+	margin-left: 10px;
+	border-radius: 2px;
+}
+.board-wrap form > div .file-name + label:hover {
+	background-color: #555;
+}
+.board-wrap .btn-wrap {
+	display: flex;
+	justify-content: flex-end;
+	margin: 20px 0;
+}
+.board-wrap .btn-wrap a + a {
+	margin-left: 10px;
+}
+.board-wrap form .btn-wrap button {
+	margin-left: 10px;
+	cursor: pointer;
+}
+.borad-content {
+	width: 100%;
+	max-width: 960px;
+}
+.borad-content > div {
+	display: flex;
+	align-items: center;
+	padding: 5px 0;
+}
+.borad-content > div .column-half {
+	display: flex;
+	width: calc(50% - 5px);
+}
+.borad-content > div .column-half + .column-half {
+	margin-left: 10px;
+}
+.borad-content > div.content-inner {
+	background: #f5f5f5;
+	padding: 30px;
+	min-height: 400px;
+	align-items: flex-start;
+	margin: 10px 0;
+}
+.borad-content > div span {
+	width: 150px;
+	background: #333;
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+.borad-content > div span + p {
+	width: calc(100% - 160px);
+	background: #f5f5f5;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.uploaded-file {
+	padding: 10px 10px 10px 38px;
+	background: #f5f5f5 url(../imgs/icon_clip.png) no-repeat 14px 50%/16px;
+}
+
+
+
+
+/* CKEditor Style */
+.ck.ck-editor {
+	width: 100%;
+}
+
+.ck.ck-editor__editable_inline {
+	height: 400px;
+	padding: 10px 20px;
+}

@@ -12,7 +12,7 @@
 		background: url(../imgs/intro_bg.jpg) no-repeat 50% 0%/cover;
 		padding: 80px 120px;
 	}
-	.intro-wrap h1 {
+	.intro-wrap h2 {
 		color: #fff;
 		line-height: 1.5;
 		margin-bottom: 30px;
@@ -29,7 +29,7 @@
 
 <div class="intro-wrap">
 	<div class="container1440">
-		<h1>최고가 모여 대한민국 직업훈련 교육의 <br>새로운 패러다임을 이끌어갑니다</h1>
+		<h2>최고가 모여 대한민국 직업훈련 교육의 <br>새로운 패러다임을 이끌어갑니다</h2>
 		<p>더조은컴퓨터아카데미는 IT, 디자인, 영상편집 등 <br>
 		다양한 분야의 컴퓨터 교육을 통해 4차 산업 시대의 핵심 실무 인재를 배출한 <br>
 		국가 공인 최고의 훈련 기관으로 자리잡았습니다<br>
