@@ -1,0 +1,46 @@
+body{ margin: 0px;}
+.container{
+    width: 100%;
+}
+.row{clear: both;}
+
+@media screen and (min-width:1024px){
+.grid1,.grid2,.grid3,.grid4,.grid5,.grid6,
+.grid7,.grid8,.grid9,.grid10,.grid11,.grid12{
+    float: left;
+    background-color: aqua;
+}
+.grid1{width: 8.333%;}
+.grid2{width: 16.666%;}
+.grid3{width: 25%;}
+.grid4{width: 33.333%;}
+.grid5{width: 41.666%;}
+.grid6{width: 50%;}
+.grid7{width: 58.333%;}
+.grid8{width: 66.666%;}
+.grid9{width: 75%;}
+.grid10{width: 83.333%;}
+.grid11{width: 91.666%;}
+.grid12{width: 100%;}
+}
+
+@media screen and (max-width:1023px){
+.mgrid1,.mgrid2,.mgrid3,.mgrid4,.mgrid5,.mgrid6,
+.mgrid7,.mgrid8,.mgrid9,.mgrid10,.mgrid11,.mgrid12{
+    float: left;
+    background-color: aqua;
+}
+.mgrid1{width: 8.333%;}
+.mgrid2{width: 16.666%;}
+.mgrid3{width: 25%;}
+.mgrid4{width: 33.333%;}
+.mgrid5{width: 41.666%;}
+.mgrid6{width: 50%;}
+.mgrid7{width: 58.333%;}
+.mgrid8{width: 66.666%;}
+.mgrid9{width: 75%;}
+.mgrid10{width: 83.333%;}
+.mgrid11{width: 91.666%;}
+.mgrid12{width: 100%;}
+    .mclear{display: none;}
+}
