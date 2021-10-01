@@ -52,7 +52,7 @@
 			<ul>
 				<li><a href="#">모집현황 조회</a></li>
 				<%if((int)sessAuth == 4) {%>
-				<li><a href="#">수업 개설</a></li>
+					<li><a href="#">수업 개설</a></li>
 				<%} %>
 			</ul>
 		</div>
