@@ -157,7 +157,7 @@ insert into member values ('teacher00', 'teacher00', 2);
 insert into member values ('sales00', 'sales00', 3);
 insert into member values ('admin00', 'admin00', 4);
 
--- null 관련 추가 쿼리문
+-- null 관련 추가 쿼리문..
 alter table quest modify ans_nalja date null;
 alter table quest modify ans_cont varchar2(2000) null;
 
