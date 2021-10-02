@@ -54,8 +54,7 @@
 		<%} %>
 	</div>
 	
-	
-	
+
 	<!-- 각 페이지 내용 입력 End -->
 	<%@ include file="../../template/lms-footer.jspf" %>
 </body>

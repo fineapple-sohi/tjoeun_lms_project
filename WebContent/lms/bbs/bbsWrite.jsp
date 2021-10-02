@@ -47,7 +47,7 @@
 			});
 			
 			$('.ok-btn').on('click', function(){
-				history.back();
+				location.replace("bbsList.lms?bbs_table=<%=request.getAttribute("bbsTable") %>");
 			});
 			
 		});

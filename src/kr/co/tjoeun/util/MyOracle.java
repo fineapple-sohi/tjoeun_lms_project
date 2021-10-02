@@ -12,6 +12,7 @@ public class MyOracle {
 	private static String user="system";	//scott
 	private static String password="oracle";	//tiger
 
+
 	
 	private MyOracle() {}
 	

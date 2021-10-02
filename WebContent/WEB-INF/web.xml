@@ -27,6 +27,22 @@
   </servlet-mapping>
   <!-- LMS메인 매핑 END -->
   
+  <!-- LMS 성적관리 매핑 START -->
+  <servlet>
+  	<servlet-name>scoreManage</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.ScoreManageController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+  	</init-param>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>scoreManage</servlet-name>
+  	<url-pattern>/lms/eval/scoreManage.lms</url-pattern>
+  </servlet-mapping>
+  <!-- LMS 성적관리 매핑 END -->
   
   <!-- LMS 게시판관리 매핑 START -->
   <servlet>
@@ -61,7 +77,21 @@
   		<param-value>../../</param-value>
  	</init-param>
   </servlet>
-
+ <servlet>
+  	<servlet-name>lmsBbsDel</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.LmsBbsDelController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+ 	</init-param>
+  </servlet> 
+  
+  
+  
+  <servlet-mapping>
+  	<servlet-name>lmsBbsDel</servlet-name>
+  	<url-pattern>/lms/bbs/bbsDelete.lms</url-pattern>
+  </servlet-mapping> 
   <servlet-mapping>
   	<servlet-name>lmsBbsEdit</servlet-name>
   	<url-pattern>/lms/bbs/bbsEdit.lms</url-pattern>
@@ -74,29 +104,72 @@
   	<servlet-name>lmsBbsWrite</servlet-name>
   	<url-pattern>/lms/bbs/bbsWrite.lms</url-pattern>
   </servlet-mapping>
-    <servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>lmsBbsList</servlet-name>
   	<url-pattern>/lms/bbs/bbsList.lms</url-pattern>
   </servlet-mapping>
   <!-- LMS 게시판관리 매핑 END -->
   
-  
-  <!-- LMS 성적관리 매핑 START -->
-    <servlet>
-  	<servlet-name>scoreManage</servlet-name>
-  	<servlet-class>kr.co.tjoeun.controller.ScoreManageController</servlet-class>
-  	<init-param>
-  		<param-name>path</param-name>
-  		<param-value>../../</param-value>
-  	</init-param>
+  <!-- LMS 직원조회 매핑 START -->
+  <servlet>
+	<servlet-name>lmsStafList</servlet-name>
+	<servlet-class>kr.co.tjoeun.controller.LmsStafListController</servlet-class>
+	<init-param>
+		<param-name>path</param-name>
+		<param-value>../../</param-value>
+	</init-param>
   </servlet>
- 
-  
   <servlet-mapping>
-  	<servlet-name>scoreManage</servlet-name>
-  	<url-pattern>/lms/eval/scoreManage.lms</url-pattern>
+  	<servlet-name>lmsStafList</servlet-name>
+  	<url-pattern>/lms/stafManage/stafList.lms</url-pattern>
   </servlet-mapping>
-   <!-- LMS 성적관리 매핑 END -->
+  <!-- LMS 직원조회 매핑 END -->
+  
+  
+  <!-- LMS 직원 상세보기 매핑 START -->
+  <servlet>
+	<servlet-name>lmsStafDetail</servlet-name>
+	<servlet-class>kr.co.tjoeun.controller.LmsStafDetailController</servlet-class>
+	<init-param>
+		<param-name>path</param-name>
+		<param-value>../../</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>lmsStafDetail</servlet-name>
+  	<url-pattern>/lms/stafManage/stafDetail.lms</url-pattern>
+  </servlet-mapping>
+  <!-- LMS 직원 상세보기 매핑 END -->
+  
+    <!-- LMS 직원 등록 매핑 START -->
+  <servlet>
+	<servlet-name>lmsStafInsert</servlet-name>
+	<servlet-class>kr.co.tjoeun.controller.LmsStafInsertController</servlet-class>
+	<init-param>
+		<param-name>path</param-name>
+		<param-value>../../</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>lmsStafInsert</servlet-name>
+  	<url-pattern>/lms/stafManage/stafInsert.lms</url-pattern>
+  </servlet-mapping>
+  <!-- LMS 직원 등록 매핑 END -->
+  
+  <!-- 개인정보 수정 페이지 매핑 START -->
+  <servlet>
+	<servlet-name>lmsPersonalUpdate</servlet-name>
+	<servlet-class>kr.co.tjoeun.controller.LmsPersonalUpdateController</servlet-class>
+	<init-param>
+		<param-name>path</param-name>
+		<param-value>../../</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>lmsPersonalUpdate</servlet-name>
+  	<url-pattern>/lms/personalInfo/personalUpdate.lms</url-pattern>
+  </servlet-mapping>
+  <!-- 개인정보 수정 페이지 매핑 END -->
   
   
   <!-- 홈페이지 매핑 START -->
@@ -164,9 +237,6 @@
   		<param-value>../</param-value>
  	</init-param>
   </servlet>
-  
-  
-  
   
   <servlet-mapping>
   	<servlet-name>logout</servlet-name>

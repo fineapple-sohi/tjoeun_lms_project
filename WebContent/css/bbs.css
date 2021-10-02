@@ -96,7 +96,7 @@
 	justify-content: flex-end;
 	margin: 20px 0;
 }
-.board-wrap .btn-wrap a + a {
+.board-wrap .btn-wrap > * + * {
 	margin-left: 10px;
 }
 .board-wrap form .btn-wrap button {
@@ -211,7 +211,14 @@
 	width: 100%;
 	font-size: 20px;
 }
-
+.confirm-pop .inner-box .btn-wrap {
+	display: flex;
+	justify-content: flex-end;
+	margin: 20px 0;
+}
+.confirm-pop .inner-box .btn-wrap > * + * {
+	margin-left: 10px;
+}
 
 
 /* CKEditor Style */

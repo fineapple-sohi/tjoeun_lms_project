@@ -1,3 +1,4 @@
+   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="kr.co.tjoeun.model.BbsDto" %>
@@ -8,6 +9,19 @@
 <title>LMS시스템</title>
 <%@ include file="../../template/head.jspf" %>
 <link rel="stylesheet" href="<%=request.getAttribute("path") %>css/bbs.css">
+<script>
+	// 삭제 확인창
+	$(function(){
+		$('.del-btn').on('click', function(){
+			$('.confirm-pop').fadeIn(300).addClass('on');
+			
+			$('.back-btn').on('click', function(){
+				$('.confirm-pop').fadeOut(300).removeClass('on');
+			});
+		
+		});
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../../template/lms-header.jspf" %>
@@ -56,9 +70,35 @@
 			<%} %>
 		</div>
 		<div class="btn-wrap">
-			<a class="del-btn btn-box bd-blue" href="#">삭제</a>
+			<%
+			if(request.getAttribute("bbsTable").equals("notice") || session.getAttribute("sessionID").equals(bean.getBbsMemberId())) {
+			%>
+			<button type="button" class="del-btn btn-box bd-blue" href="#">삭제</button>
 			<a class="mod-btn btn-box blue" href="bbsEdit.lms?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>">수정</a>
+			<%} %>
 			<a class="btn-box blue" href="bbsList.lms?bbs_table=<%=request.getAttribute("bbsTable") %>">목록</a>
+		</div>
+	</div>
+	
+	
+	<div class="confirm-pop">
+		<div class="inner-box">
+			<p>삭제 시 해당 게시글은 다시 복구할 수 없습니다.</p>
+			<strong>정말 삭제하시겠습니까?</strong>
+			<div class="btn-wrap">
+				<button type="button" class="back-btn btn-box bd-blue">취소</button>
+				<a href="#" onclick="okDel();" class="ok-btn btn-box blue">삭제</a>
+				<script>
+					function okDel() {
+						$.post("bbsDelete.lms", {
+							bbsTable: '<%=request.getAttribute("bbsTable") %>',
+							idx: <%=bean.getBbsIdx() %>
+						}).done(function(){
+							location.replace("bbsList.lms?bbs_table=<%=request.getAttribute("bbsTable") %>");
+						});
+					}
+				</script>
+			</div>
 		</div>
 	</div>
 	
