@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="kr.co.tjoeun.model.BbsDto" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,24 +57,28 @@
 		
 	});
 </script>
-
 </head>
 <body>
-	<%@ include file="../../template/lms-header.jspf" %>
+<%@ include file="../../template/lms-header.jspf" %>
 	<%@ include file="../../template/lms-menu.jspf" %>
 	
 	
 	<!-- 각 페이지 내용 입력 Start -->
-	<h2 class="pg-tit"><%=request.getAttribute("bbsTit") %> 글쓰기</h2>
+	<h2 class="pg-tit"><%=request.getAttribute("bbsTit") %> 수정</h2>
+	
+	<%
+		BbsDto bean = (BbsDto)request.getAttribute("bean");
+	%>
+	
 	
 	<div class="board-wrap">
 		<form method="post">
 			<div>
 				<label class="cate" for="subject">제목</label>
-				<input type="text" name="subject"  id="subject">
+				<input type="text" name="subject" id="subject" value="<%=bean.getBbsSub() %>">
 			</div>
 			<div>
-				<textarea name="content" id="editor"></textarea>
+				<textarea name="content" id="editor"><%=bean.getBbsCont() %></textarea>
 			</div>
 			<div>
 				<span class="cate">첨부파일</span>
@@ -83,7 +88,7 @@
 			</div>
 			<div class="btn-wrap">
 				<button type="button" class="btn-box bd-blue cls-btn">취소</button>
-				<button type="submit" class="btn-box blue send">작성</button>
+				<button type="submit" class="btn-box blue send">수정</button>
 			</div>
 		</form>
 	</div>

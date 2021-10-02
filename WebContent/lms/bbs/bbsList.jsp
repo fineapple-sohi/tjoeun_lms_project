@@ -47,9 +47,11 @@
 				<%} %>
 			</tbody>
 		</table>
+		<%if(request.getAttribute("bbsTable").equals("notice")) {%>
 		<div class="btn-wrap">
 			<a class="btn-box blue" href="bbsWrite.lms?bbs_table=<%=request.getAttribute("bbsTable") %>">글쓰기</a>
 		</div>
+		<%} %>
 	</div>
 	
 	

@@ -117,9 +117,9 @@ public class BbsDao {
 		BbsDto bean = new BbsDto();
 		
 		if(bbsTable.equals("notice")) {
-			sql = "select notice_sub, notice_cont, notice_nalja, notice_memberid from notice where notice_idx=?";
+			sql = "select notice_idx, notice_sub, notice_cont, notice_nalja from notice where notice_idx=?";
 		} else if (bbsTable.equals("quest")) {
-			sql = "select quest_sub, quest_cont, quest_nalja, quest_memberid from quest where quest_idx=?";
+			sql = "select quest_idx, quest_sub, quest_cont, quest_nalja, quest_memberid from quest where quest_idx=?";
 		}
 		
 		try {
@@ -130,13 +130,15 @@ public class BbsDao {
 			
 			if(bbsTable.equals("notice")) {
 				if(rs.next()) {
+					bean.setBbsIdx(rs.getInt("notice_idx"));
 					bean.setBbsSub(rs.getString("notice_sub"));
 					bean.setBbsCont(rs.getString("notice_cont"));
 					bean.setBbsNalja(rs.getDate("notice_nalja"));
-					bean.setBbsMemberId(rs.getString("notice_memberid"));
+					bean.setBbsMemberId("THEJOEUN");
 				}
 			} else if (bbsTable.equals("quest")) {
 				if(rs.next()) {
+					bean.setBbsIdx(rs.getInt("quest_idx"));
 					bean.setBbsSub(rs.getString("quest_sub"));
 					bean.setBbsCont(rs.getString("quest_cont"));
 					bean.setBbsNalja(rs.getDate("quest_nalja"));
@@ -154,11 +156,42 @@ public class BbsDao {
 				e.printStackTrace();
 			}
 		}
-		
-		
-		
+	
 		return bean;
 			
+	}
+	
+	
+	// 수정하기
+	public void editBbs(String bbsTable, String bbsSub, String bbsCont, int bbsIdx) {
+		
+		String sql="default";
+		
+		if(bbsTable.equals("notice")) {
+			sql = "update notice set notice_sub=?, notice_cont=? where notice_idx=?";
+		} else if(bbsTable.equals("quest")) {
+			sql = "update quest set quest_sub=?, quest_cont=? where quest_idx=?";
+		}
+		
+		try {
+			conn = MyOracle.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bbsSub);
+			pstmt.setString(2, bbsCont);
+			pstmt.setInt(3, bbsIdx);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	
