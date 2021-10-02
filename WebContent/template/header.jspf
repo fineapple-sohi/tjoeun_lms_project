@@ -55,10 +55,10 @@
 				</ul>
 			</li>
 			<li>
-				<a href="<%=request.getAttribute("path") %>notice.do">커뮤니티</a>
+				<a href="<%=request.getAttribute("path") %>community/notice.do?bbs_table=notice">커뮤니티</a>
 				<ul>
-					<li><a href="<%=request.getAttribute("path") %>community/notice.do">공지사항</a></li>
-					<li><a href="<%=request.getAttribute("path") %>community/quest.do">문의하기</a></li>
+					<li><a href="<%=request.getAttribute("path") %>community/notice.do?bbs_table=notice">공지사항</a></li>
+					<li><a href="<%=request.getAttribute("path") %>community/quest.do?bbs_table=quest">문의하기</a></li>
 				</ul>
 			</li>
 		</ul>
