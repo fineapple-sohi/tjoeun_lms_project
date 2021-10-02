@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import kr.co.tjoeun.util.MyOracle;
 
@@ -48,6 +49,7 @@ public class LectDao {
 	public LectDto selectLect(String lectCode) {
 		LectDto bean = new LectDto();
 		String sql="select * from Lect where Lect_Code=?";
+		String lectTeacherId="";
 		
 		try {
 			conn=MyOracle.getConnection();
@@ -57,7 +59,9 @@ public class LectDao {
 			if(rs.next()) {
 				bean.setLectCode(rs.getString("Lect_Code"));
 				bean.setLectName(rs.getString("Lect_Name"));
-				bean.setLectTeacher(new TeacherDao().selectTeacher(rs.getString("Lect_StafId")));
+				//bean.setLectTeacher(new TeacherDao().selectTeacher(rs.getString("Lect_StafId")));
+				//중첩으로 ORACLE에 접속하지 않도록 한다.
+				lectTeacherId=rs.getString("Lect_StafId");
 				bean.setLectTotalNumStus(rs.getInt("Lect_TotalNumStus"));
 				bean.setLectBeginDate(rs.getDate("Lect_BeginDate"));
 				bean.setLectEndDate(rs.getDate("Lect_EndDate"));
@@ -77,16 +81,59 @@ public class LectDao {
 				e.printStackTrace();
 			}
 		} //try-catch-finally
+		
+		bean.setLectTeacher(new TeacherDao().selectTeacher(lectTeacherId)); //setLectTeacher
 		return bean;
 	} //selectLect
+	
+	public ArrayList<LectDto> selectLectList() {
+		ArrayList<LectDto> list = new ArrayList<LectDto>();
+		String sql="select * from Lect";
+		ArrayList<String> lectTeacherIdList = new ArrayList<String>();
+		
+		try {
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				LectDto bean = new LectDto();
+				bean.setLectCode(rs.getString("Lect_Code"));
+				bean.setLectName(rs.getString("Lect_Name"));
+				//bean.setLectTeacher(new TeacherDao().selectTeacher(rs.getString("Lect_StafId")));
+				//중첩으로 ORACLE에 접속하지 않도록 한다.
+				lectTeacherIdList.add(rs.getString("Lect_StafId"));
+				bean.setLectTotalNumStus(rs.getInt("Lect_TotalNumStus"));
+				bean.setLectBeginDate(rs.getDate("Lect_BeginDate"));
+				bean.setLectEndDate(rs.getDate("Lect_EndDate"));
+				bean.setLectNumNaljas(rs.getInt("Lect_NumNaljas"));
+				bean.setLectBeginTime(rs.getInt("Lect_BeginTime"));
+				bean.setLectEndTime(rs.getInt("Lect_EndTime"));
+				bean.setLectThumbName(rs.getString("Lect_ThumbName"));
+				list.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //try-catch-finally
+		
+		for(int i=0;i<list.size();i++) {
+			String lectTeacherId=lectTeacherIdList.get(i);
+			list.get(i).setLectTeacher(new TeacherDao().selectTeacher(lectTeacherId));
+		} //i loop (a loop for setting lectTeacher)
+		return list;
+	} //selectLectList
 	
 	public void updateLect(String lectCode, String lectName, String lectTeacherId,
 			int lectNumStus, Date lectBeginDate, Date lectEndDate, int lectNumNaljas,
 			int lectBeginTime, int lectEndTime, String lectThumbName) {
-		String sql="update Lect set Lect_Name=?, Lect_StafId=?, "
-				+ "Lect_TotalNumStus=?, Lect_BeginDate=?, Lect_EndDate=?, "
-				+ "Lect_NumNaljas=?, Lect_BeginTime=?, Lect_EndTime=?, Lect_ThumbName=? "
-				+ "where Lect_Code=?";
+		String sql="update Lect set Lect_Name=?, Lect_StafId=?, Lect_TotalNumStus=?, Lect_BeginDate=?, Lect_EndDate=?, Lect_NumNaljas=?, Lect_BeginTime=?, Lect_EndTime=?, Lect_ThumbName=? where Lect_Code=?";
 		
 		try {
 			conn=MyOracle.getConnection();
