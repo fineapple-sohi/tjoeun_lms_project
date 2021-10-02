@@ -1,22 +1,3 @@
--- 테이블 삭제(+시퀀스삭제)
-drop sequence eval_seq;
-drop sequence attend_seq;
-drop sequence quest_seq;
-drop sequence notice_seq;
-
-drop table member;
-drop table notice;
-drop table quest;
-drop table guest;
-drop table attend;
-drop table eval;
-drop table stu;
-drop table lect;
-drop table staf;
-drop table dep;
-
-
--- 테이블 생성
 --Create table Dep
 CREATE TABLE Dep
 (
@@ -125,39 +106,27 @@ CREATE TABLE Guest
 --Create table Member
 CREATE TABLE Member
 (
-    Member_Id VARCHAR2(16) PRIMARY KEY,
-    Member_Pw VARCHAR2(16) NOT NULL,
-    Member_Auth NUMBER NOT NULL
+	Member_Id VARCHAR2(16) PRIMARY KEY,
+	Member_Pw VARCHAR2(16) NOT NULL,
+	Member_Auth INT NOT NULL
 );
 
---Dummy Data
+
+
 insert into dep values ('admin', '행정팀');
 insert into dep values ('sales', '영업팀');
 insert into dep values ('teacher', '강사팀');
 
+insert into guest values ('guest00', '게스트01', '01011112222', 'guest01@gmail.com', '서울', 'guest01');
 
-insert into guest values ('guest00', '게스트01', '01011112222', 'guest01@gmail.com', 
-					'서울', 'guest01');
-
-insert into staf values ('admin00', '김행정', '01011112222', 'admin00@gmail.com', 
-					'서울', 'admin00', 'admin');
-insert into staf values ('teacher00', '박강사', '01033334444', 'teacher00@gmail.com', 
-					'인천', 'teacher00', 'teacher');
+insert into staf values ('admin00', '김행정', '01011112222', 'admin00@gmail.com', '서울', 'admin00', 'admin');
+insert into staf values ('teacher00', '박강사', '01033334444', 'teacher00@gmail.com', '인천', 'teacher00', 'teacher');
 insert into staf values ('sales00', '이영업', '01055556666', 'sales00@gmail.com', '경기', 'sales00', 'sales');
 
-insert into lect values ('lect00', 'JAVA', 'teacher00', 30, TO_DATE('2011-03-01','YYYY-MM-DD'),
-					TO_DATE('2011-06-01','YYYY-MM-DD'), 90, 0930, 1830, 'java.jpg');
-
-insert into stu values ('stu00', '이학생', '01088889999', 
-						'stu00@naver.com', '대전', 'stu00', 'lect00');
+insert into stu values ('stu00', '이학생', '01088889999', 'stu00@naver.com', '대전', 'stu00', 'lect00');
 
 insert into member values ('guest00', 'guest00', 0);
 insert into member values ('stu00', 'stu00', 1);
 insert into member values ('teacher00', 'teacher00', 2);
 insert into member values ('sales00', 'sales00', 3);
 insert into member values ('admin00', 'admin00', 4);
-
-
-
-
-

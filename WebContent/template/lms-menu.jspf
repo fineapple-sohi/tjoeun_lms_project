@@ -52,27 +52,27 @@
 			<ul>
 				<li><a href="#">모집현황 조회</a></li>
 				<%if((int)sessAuth == 4) {%>
-					<li><a href="#">수업 개설</a></li>
+				<li><a href="#">수업 개설</a></li>
 				<%} %>
 			</ul>
 		</div>
 		<div class="depth1">
 			<strong>직원관리</strong>
 			<ul>
-				<li><a href="#">직원 조회</a></li>
-				<li><a href="#">직원 등록</a></li>
+				<li><a href="<%=request.getAttribute("path") %>lms/stafManage/stafList.lms">직원 조회</a></li>
+				<li><a href="<%=request.getAttribute("path") %>lms/stafManage/stafInsert.lms">직원 등록</a></li>
 			</ul>
 		</div>
 		<div class="depth1">
 			<strong>수강생관리</strong>
 			<ul>
 				<li><a href="#">수강생 조회</a></li>
-				<%if((int)sessAuth >= 3) {%>
+				<%if((int)sessAuth == 4) {%>
 				<li><a href="#">수강생 등록</a></li>
 				<%} %>
 				<%if((int)sessAuth == 2) {%>
 				<li><a href="#">출결관리</a></li>	<!-- 강사에게 보이는 출결관리 -->
-				<li><a href="<%=request.getAttribute("path") %>lms/eval/scoreManage.lms?stu_table=score&teacherId=<%=session.getAttribute("sessionID")%>">성적관리</a></li>   <!-- 강사에게 보이는 성적관리 -->
+				<li><a href="#">성적관리</a></li>   <!-- 강사에게 보이는 성적관리 -->
 				<%} %>
 			</ul>
 		</div>
