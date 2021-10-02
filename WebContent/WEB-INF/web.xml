@@ -37,8 +37,44 @@
   		<param-value>../../</param-value>
  	</init-param>
   </servlet>
-  
+  <servlet>
+  	<servlet-name>lmsBbsWrite</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.LmsBbsWriteController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+ 	</init-param>
+  </servlet>
+  <servlet>
+  	<servlet-name>lmsBbsView</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.LmsBbsViewController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+ 	</init-param>
+  </servlet>
+  <servlet>
+  	<servlet-name>lmsBbsEdit</servlet-name>
+  	<servlet-class>kr.co.tjoeun.controller.LmsBbsEditController</servlet-class>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>../../</param-value>
+ 	</init-param>
+  </servlet>
+
   <servlet-mapping>
+  	<servlet-name>lmsBbsEdit</servlet-name>
+  	<url-pattern>/lms/bbs/bbsEdit.lms</url-pattern>
+  </servlet-mapping>  
+  <servlet-mapping>
+  	<servlet-name>lmsBbsView</servlet-name>
+  	<url-pattern>/lms/bbs/bbsView.lms</url-pattern>
+  </servlet-mapping>    
+  <servlet-mapping>
+  	<servlet-name>lmsBbsWrite</servlet-name>
+  	<url-pattern>/lms/bbs/bbsWrite.lms</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
   	<servlet-name>lmsBbsList</servlet-name>
   	<url-pattern>/lms/bbs/bbsList.lms</url-pattern>
   </servlet-mapping>
