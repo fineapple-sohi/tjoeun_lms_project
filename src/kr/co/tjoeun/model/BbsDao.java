@@ -195,6 +195,38 @@ public class BbsDao {
 	}
 	
 	
+	// 삭제하기
+	public void delBbs(String bbsTable, int bbsIdx) {
+		String sql = "default";
+		if(bbsTable.equals("notice")) {
+			sql = "delete from notice where notice_idx=?";
+		} else if(bbsTable.equals("quest")) {
+			sql = "delete from quest where quest_idx=?";
+		}
+		
+		try {
+			conn = MyOracle.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsIdx);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	
 
 
 }
