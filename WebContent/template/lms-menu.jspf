@@ -89,7 +89,7 @@
 				<%} %>
 				<%if((int)sessAuth == 2) {%>
 				<li><a href="#">출결관리</a></li>	<!-- 강사에게 보이는 출결관리 -->
-				<li><a href="#">성적관리</a></li>   <!-- 강사에게 보이는 성적관리 -->
+				<li><a href="<%=request.getAttribute("path") %>lms/eval/scoreManage.lms?stu_table=score&teacherId=<%=session.getAttribute("sessionID")%>">성적관리</a></li>   <!-- 강사에게 보이는 성적관리 -->
 				<%} %>
 			</ul>
 		</div>
