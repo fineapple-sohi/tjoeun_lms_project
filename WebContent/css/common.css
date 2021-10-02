@@ -1,10 +1,15 @@
 @charset "UTF-8";
 
-* {margin: 0; padding: 0; box-sizing: border-box;}
+* {margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all;}
 ul {list-style: none;}
 a {text-decoration: none; color: inherit;}
 
-html,body {font-family: 'Nanum Gothic', sans-serif; font-size: 15px; color: #333;}
+html,body {
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #333;
+}
  
  
 /* hp 템플릿 */  
@@ -256,6 +261,7 @@ footer ul li + li {
    	font-weight: bold;
    	padding: .5em .8em;
    	transition: all .2s;
+   	cursor: pointer;
 }
 .btn-box.blue {
 	border: 1px solid #0082FF;
@@ -281,4 +287,3 @@ footer ul li + li {
 .content-wrap {
 	margin-top: 110px;
 }
-
