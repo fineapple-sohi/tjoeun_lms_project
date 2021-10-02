@@ -146,7 +146,71 @@
 	padding: 10px 10px 10px 38px;
 	background: #f5f5f5 url(../imgs/icon_clip.png) no-repeat 14px 50%/16px;
 }
+.ans-content {
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+.ans-content > div {
+	display: flex;
+	width: 100%;
+}
+.ans-content label {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	width: 150px;
+	margin-right: 10px;
+	background: #333;
+    color: #fff;
+}
+.ans-content textarea {
+	width: calc(100% - 160px);
+	height: 180px;
+	padding: 20px;
+	font-family: inherit;
+	font-size: inherit;
+}
+.ans-content .btn-box {
+	margin: 10px 0 40px;
+}
 
+/* confirm-pop */
+.confirm-pop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,.1);
+	display: none;
+	z-index: -1;
+}
+.confirm-pop.on {
+	z-index: 100;
+}
+.confirm-pop .inner-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 300px;
+	background: #fff;
+	border: 1px solid #0082FF;
+	padding: 40px 30px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.confirm-pop .inner-box p {
+	font-size: 18px;
+}
+.confirm-pop .inner-box strong {
+	width: 100%;
+	font-size: 20px;
+}
 
 
 
