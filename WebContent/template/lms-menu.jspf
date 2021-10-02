@@ -59,8 +59,8 @@
 		<div class="depth1">
 			<strong>직원관리</strong>
 			<ul>
-				<li><a href="#">직원 조회</a></li>
-				<li><a href="#">직원 등록</a></li>
+				<li><a href="<%=request.getAttribute("path") %>lms/stafManage/stafList.lms">직원 조회</a></li>
+				<li><a href="<%=request.getAttribute("path") %>lms/stafManage/stafInsert.lms">직원 등록</a></li>
 			</ul>
 		</div>
 		<div class="depth1">

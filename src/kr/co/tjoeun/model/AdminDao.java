@@ -171,5 +171,32 @@ public class AdminDao {
 			}
 		} //try-catch-finally1
 	} //updateAdmin
+	
+	public boolean isIdValid(String newId) {
+		String sql="select count(*) from Member where Member_Id=?";
+		int numRows=0;
+		
+		try {
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, newId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				numRows=rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //try-catch-finally
+		if(numRows>0) return false;
+		else return true;
+	} //isIdValid
 
 }

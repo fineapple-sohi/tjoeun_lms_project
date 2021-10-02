@@ -9,11 +9,8 @@
 <title>LMS시스템</title>
 <%@ include file="../../template/head.jspf" %>
 
-<link rel="stylesheet/css" href="css/jquery.bxslider.min.css"/>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 <style type="text/css">
-body>div{
+.right-content>div{
 	width: 800px;
 	background-color: white;
 	margin:0px auto;
