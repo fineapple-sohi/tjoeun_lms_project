@@ -35,7 +35,12 @@ public class LmsBbsEditController extends HttpServlet {
 		req.setAttribute("bean", bean);
 		
 		req.setAttribute("path", path);
-		RequestDispatcher rd = req.getRequestDispatcher(path+"lms/bbs/bbsEdit.jsp");
+		RequestDispatcher rd = null;
+		if(req.getServletPath().indexOf(".lms") > 0) {
+			rd = req.getRequestDispatcher(path+"lms/bbs/bbsEdit.jsp");
+		} else if (req.getServletPath().indexOf(".do") > 0) {
+			rd = req.getRequestDispatcher(path+"community/boardEdit.jsp");
+		}	
 		rd.forward(req, resp);
 	}
 	
@@ -56,7 +61,13 @@ public class LmsBbsEditController extends HttpServlet {
 		
 		BbsDao bbsDao = BbsDao.getInstance();
 		bbsDao.editBbs(bbsTable, bbsSub, bbsCont, bbsIdx);
-		resp.sendRedirect(path+"lms/bbs/bbsView.lms?bbs_table="+bbsTable+"&idx="+bbsIdx);
+		
+		if(req.getServletPath().indexOf(".lms") > 0) {
+			resp.sendRedirect(path+"lms/bbs/bbsView.lms?bbs_table="+bbsTable+"&idx="+bbsIdx);
+		} else if (req.getServletPath().indexOf(".do") > 0) {
+			resp.sendRedirect(path+"community/boardView.do?bbs_table="+bbsTable+"&idx="+bbsIdx);
+		}	
+		
 		
 		
 	}

@@ -54,12 +54,21 @@
 		});
 		
 		
+		// 입력값 체크
+		$('#bbsForm').submit(function(){
+			if($('#subject').val() == '' || $('#editor').val() == '') {
+				alert('제목과 내용은 필수 입력사항입니다.');
+				return false;
+			}
+		});
+		
+		
 		
 	});
 </script>
 </head>
 <body>
-<%@ include file="../../template/lms-header.jspf" %>
+	<%@ include file="../../template/lms-header.jspf" %>
 	<%@ include file="../../template/lms-menu.jspf" %>
 	
 	
@@ -72,7 +81,7 @@
 	
 	
 	<div class="board-wrap">
-		<form method="post">
+		<form method="post" id="bbsForm">
 			<div>
 				<label class="cate" for="subject">제목</label>
 				<input type="text" name="subject" id="subject" value="<%=bean.getBbsSub() %>">
@@ -88,7 +97,7 @@
 			</div>
 			<div class="btn-wrap">
 				<button type="button" class="btn-box bd-blue cls-btn">취소</button>
-				<button type="submit" class="btn-box blue send">수정</button>
+				<button type="submit" class="btn-box blue send-btn">수정</button>
 			</div>
 		</form>
 	</div>

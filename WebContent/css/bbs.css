@@ -96,7 +96,7 @@
 	justify-content: flex-end;
 	margin: 20px 0;
 }
-.board-wrap .btn-wrap a + a {
+.board-wrap .btn-wrap > * + * {
 	margin-left: 10px;
 }
 .board-wrap form .btn-wrap button {
@@ -173,6 +173,28 @@
 .ans-content .btn-box {
 	margin: 10px 0 40px;
 }
+.ans-content .ans-view {
+	flex-wrap: wrap;
+}
+.borad-content > div.ans-content .ans-view span {
+	width: 100%;
+	margin-right: 0;
+
+}
+.borad-content > div.ans-content .ans-view p {
+	width: 100%;
+	font-size: 14px;
+	padding: 10px;
+	text-align: right;
+}
+.borad-content > div.ans-content .ans-view div {
+	width: 100%;
+	height: 180px;
+	background: #f5f5f5;
+	padding: 10px 40px;	
+}
+
+
 
 /* confirm-pop */
 .confirm-pop {
@@ -211,7 +233,14 @@
 	width: 100%;
 	font-size: 20px;
 }
-
+.confirm-pop .inner-box .btn-wrap {
+	display: flex;
+	justify-content: flex-end;
+	margin: 20px 0;
+}
+.confirm-pop .inner-box .btn-wrap > * + * {
+	margin-left: 10px;
+}
 
 
 /* CKEditor Style */

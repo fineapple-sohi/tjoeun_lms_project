@@ -116,6 +116,12 @@ span, label{
 	
 	
 	<!-- 각 페이지 내용 입력 Start -->
+	<%if((int)session.getAttribute("sessionAuth")!=4){ %>
+	<!-- 행정팀 이외의 인원이 접근했을 때 표시되는 화면 -->
+	<h2 class="pg-tit">미구현 페이지</h2>
+	<p> 본 페이지는 아직 구현되지 않았습니다.</p>
+	<%} else{ %>
+	<!-- 행정팀 인원이 접근했을 때 표시되는 화면 -->
 	<h2 class="pg-tit">직원 등록</h2>
 <%
 //String stafName="", 
@@ -169,7 +175,7 @@ span, label{
 		허용되지 않은 형태의 값을 입력하셨거나 아이디가 중복되었습니다.
 	</div>
 	</form>
-
+	<%} %>
 
 
 	<!-- 각 페이지 내용 입력 End -->
