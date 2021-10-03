@@ -68,6 +68,12 @@ span, label{
 	
 	
 	<!-- 각 페이지 내용 입력 Start -->
+	<%if((int)session.getAttribute("sessionAuth")!=4){ %>
+	<!-- 행정팀 이외의 인원이 접근했을 때 표시되는 화면 -->
+	<h2 class="pg-tit">미구현 페이지</h2>
+	<p> 본 페이지는 아직 구현되지 않았습니다.</p>
+	<%} else{ %>
+	<!-- 행정팀 인원이 접근했을 때 표시되는 화면 -->
 	<h2 class="pg-tit">직원 수정</h2>
 <%
 String stafName="", /*stafId="",*//*stafDepCode="",*/ stafPw="", stafTel="", stafEmail="", stafAddr="";
@@ -137,7 +143,7 @@ if("admin".equals(stafDepCode)){
 		<button type="reset" class="btn-box bd-blue">취소</button>
 	</div>
 	</form>
-
+	<%} %>
 
 
 	<!-- 각 페이지 내용 입력 End -->

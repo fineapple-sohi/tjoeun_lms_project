@@ -30,7 +30,7 @@
 				}			
 		%>
 		<span class="user-icon"><%=sessId %>님 [<%=authName %>]</span>
-		<a href="<%=request.getAttribute("path") %>lms/stafManage/stafInsert.lms" class="btn-box blue">개인정보수정</a>
+		<a href="<%=request.getAttribute("path") %>lms/personalInfo/personalUpdate.lms" class="btn-box blue">개인정보수정</a>
 		<a href="<%=request.getAttribute("path") %>login/logout.do" class="btn-box bd-blue">로그아웃</a>
 		<%} %>
 	</div>
