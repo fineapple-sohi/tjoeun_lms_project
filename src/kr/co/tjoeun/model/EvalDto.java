@@ -2,7 +2,7 @@ package kr.co.tjoeun.model;
 
 public class EvalDto {
 	private int evalOrderNum;
-	private String evalStu;
+	private StuDto evalStu;
 	private int evalScore;
 	private String evalLectCode;
 	
@@ -16,11 +16,11 @@ public class EvalDto {
 		this.evalOrderNum = evalOrderNum;
 	}
 
-	public String getEvalStu() {
+	public StuDto getEvalStu() {
 		return evalStu;
 	}
 
-	public void setEvalStu(String evalStu) {
+	public void setEvalStu(StuDto evalStu) {
 		this.evalStu = evalStu;
 	}
 
