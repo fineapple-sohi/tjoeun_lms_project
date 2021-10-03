@@ -119,7 +119,7 @@ public class BbsDao {
 		if(bbsTable.equals("notice")) {
 			sql = "select notice_idx, notice_sub, notice_cont, notice_nalja from notice where notice_idx=?";
 		} else if (bbsTable.equals("quest")) {
-			sql = "select quest_idx, quest_sub, quest_cont, quest_nalja, quest_memberid from quest where quest_idx=?";
+			sql = "select quest_idx, quest_sub, quest_cont, quest_nalja, quest_memberid, ans_cont, ans_nalja from quest where quest_idx=?";
 		}
 		
 		try {
@@ -143,6 +143,8 @@ public class BbsDao {
 					bean.setBbsCont(rs.getString("quest_cont"));
 					bean.setBbsNalja(rs.getDate("quest_nalja"));
 					bean.setBbsMemberId(rs.getString("quest_memberid"));
+					bean.setAnsCont(rs.getString("ans_cont"));
+					bean.setAnsNalja(rs.getDate("ans_nalja"));
 				}
 			}		
 		} catch (SQLException e) {
@@ -220,6 +222,33 @@ public class BbsDao {
 				e.printStackTrace();
 			}
 		}
+		
+	}
+	
+	
+	// 문의 답변등록
+	public void insertAns(int bbsIdx, String ansCont) {
+		String sql = "update quest set ans_nalja=sysdate, ans_cont=? where quest_idx=?";
+		
+		try {
+			conn = MyOracle.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ansCont);
+			pstmt.setInt(2, bbsIdx);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 		
 	}
 	

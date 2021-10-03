@@ -37,7 +37,5 @@ public class NoticeController extends HttpServlet {
 		req.setAttribute("path", path);
 		RequestDispatcher rd = req.getRequestDispatcher(path+"community/notice.jsp");
 		rd.forward(req, resp);
-		
-		System.out.println(req.getServletPath());
 	}
 }

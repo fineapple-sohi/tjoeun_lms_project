@@ -35,7 +35,12 @@ public class LmsBbsListController extends HttpServlet {
 		req.setAttribute("bbsTit", bbsTit);			
 
 		req.setAttribute("path", path);
-		RequestDispatcher rd = req.getRequestDispatcher(path+"lms/bbs/bbsList.jsp");
+		RequestDispatcher rd = null;
+		if(req.getServletPath().indexOf(".lms") > 0) {
+			rd = req.getRequestDispatcher(path+"lms/bbs/bbsList.jsp");
+		} else if (req.getServletPath().indexOf(".do") > 0) {
+			rd = req.getRequestDispatcher(path+"community/boardList.jsp");
+		}	
 		rd.forward(req, resp);
 	}
 }

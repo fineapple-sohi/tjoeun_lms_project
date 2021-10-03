@@ -4,10 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LMS시스템</title>
+<title><%=request.getAttribute("bbsTit") %></title>
 <%@ include file="../../template/head.jspf" %>
 <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
 <link rel="stylesheet" href="<%=request.getAttribute("path") %>css/bbs.css">
+<style>
+	.notice-wrap {
+		padding: 80px 120px;
+		background-color: #f5f5f5;
+	}
+	.notice-wrap h2 {
+		margin-bottom: 40px;
+		border-bottom: 1px solid #333;
+		padding: 0 10px 10px;
+	}
+</style>
 <script>
 	$(function(){
 		
@@ -47,10 +58,11 @@
 			});
 			
 			$('.ok-btn').on('click', function(){
-				location.replace("bbsList.lms?bbs_table=<%=request.getAttribute("bbsTable") %>");
+				location.replace("boardList.do?bbs_table=<%=request.getAttribute("bbsTable") %>");
 			});
 			
 		});
+		
 		
 		// 입력값 체크
 		$('#bbsForm').submit(function(){
@@ -61,48 +73,50 @@
 		});
 		
 		
-		
 	});
 </script>
 
 </head>
 <body>
-	<%@ include file="../../template/lms-header.jspf" %>
-	<%@ include file="../../template/lms-menu.jspf" %>
-	
+	<%@ include file="../../template/header.jspf" %>
 	
 	<!-- 각 페이지 내용 입력 Start -->
-	<h2 class="pg-tit"><%=request.getAttribute("bbsTit") %> 글쓰기</h2>
+	<div class="notice-wrap">
+		<div class="container1440">
 	
-	<div class="board-wrap">
-		<form method="post" id="bbsForm">
-			<div>
-				<label class="cate" for="subject">제목</label>
-				<input type="text" name="subject"  id="subject">
+			<h2 class="pg-tit"><%=request.getAttribute("bbsTit") %> 글쓰기</h2>
+			
+			<div class="board-wrap">
+				<form method="post" id="bbsForm">
+					<div>
+						<label class="cate" for="subject">제목</label>
+						<input type="text" name="subject"  id="subject">
+					</div>
+					<div>
+						<textarea name="content" id="editor"></textarea>
+					</div>
+					<div>
+						<span class="cate">첨부파일</span>
+						<input class="file-name" value="파일선택" disabled>
+						<label for="upload">업로드</label>
+						<input class="file-hidden" type="file" name="upload"  id="upload">
+					</div>
+					<div class="btn-wrap">
+						<button type="button" class="btn-box bd-blue cls-btn">취소</button>
+						<button type="submit" class="btn-box blue send">작성</button>
+					</div>
+				</form>
 			</div>
-			<div>
-				<textarea name="content" id="editor"></textarea>
-			</div>
-			<div>
-				<span class="cate">첨부파일</span>
-				<input class="file-name" value="파일선택" disabled>
-				<label for="upload">업로드</label>
-				<input class="file-hidden" type="file" name="upload"  id="upload">
-			</div>
-			<div class="btn-wrap">
-				<button type="button" class="btn-box bd-blue cls-btn">취소</button>
-				<button type="submit" class="btn-box blue send">작성</button>
-			</div>
-		</form>
-	</div>
-	
-	<div class="confirm-pop">
-		<div class="inner-box">
-			<p>글쓰기를 취소하면 입력해놓은 내용은 모두 삭제됩니다.</p>
-			<strong>취소하시겠습니까?</strong>
-			<div class="btn-wrap">
-				<button type="button" class="back-btn btn-box bd-blue">돌아가기</button>
-				<button type="button" class="ok-btn btn-box blue">확인</button>
+			
+			<div class="confirm-pop">
+				<div class="inner-box">
+					<p>글쓰기를 취소하면 입력해놓은 내용은 모두 삭제됩니다.</p>
+					<strong>취소하시겠습니까?</strong>
+					<div class="btn-wrap">
+						<button type="button" class="back-btn btn-box bd-blue">돌아가기</button>
+						<button type="button" class="ok-btn btn-box blue">확인</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

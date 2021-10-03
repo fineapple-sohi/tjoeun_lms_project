@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title><%=request.getAttribute("bbsTit") %></title>
 <%@ include file="../template/head.jspf" %>
 <link rel="stylesheet" href="<%=request.getAttribute("path") %>css/bbs.css">
 <style>
@@ -25,7 +25,7 @@
 
 <div class="notice-wrap">
 	<div class="container1440">
-		<h2>공지사항</h2>
+		<h2><%=request.getAttribute("bbsTit") %></h2>
 		
 		<%
 		ArrayList<BbsDto> list = (ArrayList<BbsDto>)request.getAttribute("list");
@@ -49,15 +49,29 @@
 			<tbody>
 				<% for(BbsDto bean:list) {%>
 				<tr>
-					<td><a href="bbsView.lms?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsIdx() %></a></td>
-					<td><a href="bbsView.lms?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsSub() %></a></td>
-					<td><a href="bbsView.lms?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsMemberId() %></a></td>
-					<td><a href="bbsView.lms?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsNalja() %></a></td>
+					<td><a href="boardView.do?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsIdx() %></a></td>
+					<td><a href="boardView.do?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsSub() %></a></td>
+					<td><a href="boardView.do?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsMemberId() %></a></td>
+					<td><a href="boardView.do?bbs_table=<%=request.getAttribute("bbsTable") %>&idx=<%=bean.getBbsIdx() %>"><%=bean.getBbsNalja() %></a></td>
 				</tr>
 				<%} %>
 			</tbody>
 		</table>
-		
+		<%
+		boolean boo = false;
+		if(sessId != null){
+			if(request.getAttribute("bbsTable").equals("notice") && sessAuth.equals(4)) {
+				boo = true;
+			} else if (request.getAttribute("bbsTable").equals("quest")) {
+				boo = true;
+			}
+		}					
+		if(boo) {	
+		%>
+		<div class="btn-wrap">
+			<a class="btn-box blue" href="boardWrite.do?bbs_table=<%=request.getAttribute("bbsTable") %>">글쓰기</a>
+		</div>
+		<%} %>
 	</div>
 </div>
 

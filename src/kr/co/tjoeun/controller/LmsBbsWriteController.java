@@ -30,7 +30,12 @@ public class LmsBbsWriteController extends HttpServlet {
 		req.setAttribute("bbsTable", bbsTable);	
 		
 		req.setAttribute("path", path);
-		RequestDispatcher rd = req.getRequestDispatcher(path+"lms/bbs/bbsWrite.jsp");
+		RequestDispatcher rd = null;
+		if(req.getServletPath().indexOf(".lms") > 0) {
+			rd = req.getRequestDispatcher(path+"lms/bbs/bbsWrite.jsp");
+		} else if (req.getServletPath().indexOf(".do") > 0) {
+			rd = req.getRequestDispatcher(path+"community/boardWrite.jsp");
+		}
 		rd.forward(req, resp);
 	}
 	
@@ -52,7 +57,13 @@ public class LmsBbsWriteController extends HttpServlet {
 	
 		BbsDao bbsDao = BbsDao.getInstance();
 		bbsDao.insertBbs(bbsTable, bbsSub, bbsCont, bbsMemberId);
-		resp.sendRedirect(path+"lms/bbs/bbsList.lms?bbs_table="+bbsTable);
+		
+		if(req.getServletPath().indexOf(".lms") > 0) {
+			resp.sendRedirect(path+"lms/bbs/bbsList.lms?bbs_table="+bbsTable);
+		} else if (req.getServletPath().indexOf(".do") > 0) {
+			resp.sendRedirect(path+"community/boardList.do?bbs_table="+bbsTable);
+		}	
+
 		
 	}
 	
