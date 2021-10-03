@@ -157,7 +157,15 @@ insert into member values ('teacher00', 'teacher00', 2);
 insert into member values ('sales00', 'sales00', 3);
 insert into member values ('admin00', 'admin00', 4);
 
+insert into eval values (eval_seq.nextval, 1, 'stu00', null, 'lect00');
+insert into eval values (eval_seq.nextval, 2, 'stu00', null, 'lect00');
+insert into eval values (eval_seq.nextval, 3, 'stu00', null, 'lect00');
+insert into eval values (eval_seq.nextval, 4, 'stu00', null, 'lect00');
 
 
+
+-- NULL 관련 추가
+alter table quest modify ans_nalja date null;
+alter table quest modify ans_cont varchar2(2000) null;
 
 

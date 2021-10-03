@@ -38,6 +38,7 @@ section table>tbody>tr>td>a{
 }
 </style>
 <script type="text/javascript">
+/*
 $(function(){
 	$('section table tr>td:first-child').each(function(){
 		var href=$(this).find('a').attr('href');
@@ -49,6 +50,7 @@ $(function(){
 		});
 	});
 });
+*/
 </script>
 </head>
 <body>
@@ -76,8 +78,8 @@ sList = (ArrayList<StuDto>)request.getAttribute("stuList");
 				<tbody>
 <%for(StuDto bean : sList){ %>
 					<tr>
-						<td><%=bean.getStuName() %></td>
-						<td><%=bean.getStuLect().getLectName() %></td>
+						<td><a href="<%=request.getAttribute("path") %>lms/eval/addScore.lms?stuId=<%=bean.getStuId()%>"><%=bean.getStuName() %></a></td>
+						<td><a href="<%=request.getAttribute("path") %>lms/eval/addScore.lms?stuId=<%=bean.getStuId()%>"><%=bean.getStuLect().getLectName() %></a></td>
 					</tr>
 <%} %>
 				</tbody>
