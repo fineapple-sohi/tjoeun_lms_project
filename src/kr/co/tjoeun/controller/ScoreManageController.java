@@ -40,7 +40,6 @@ public class ScoreManageController extends HttpServlet {
 				break;
 			}
 		}
-		System.out.println(lectCode);
 		StuDao dao = new StuDao();
 		ArrayList<StuDto> sList = dao.selectStuList(lectCode);
 		req.setAttribute("stuList", sList);
