@@ -51,6 +51,13 @@ $(function(){
 	});
 });
 */
+$(document).ready(function(){
+	$('table>tbody>tr').hover(function(){
+		$(this).css('background-color','rgba(255,255,0,0.2)');
+	}, function(){
+		$(this).css('background-color','rgba(0,0,0,0)');
+	});
+});
 </script>
 </head>
 <body>
